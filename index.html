@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotifer - Seu Estúdio Musical</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <div class="blur-overlay"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <h1>Spotifer</h1>
+            </div>
+            <p class="subtitle">Seu Estúdio Musical Digital</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="glass-card upload-card">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Arraste suas músicas aqui</h3>
+                        <p>ou clique para selecionar arquivos</p>
+                        <input type="file" id="musicFiles" multiple accept="audio/*" style="display: none;">
+                        <button class="upload-btn" onclick="document.getElementById('musicFiles').click()">
+                            Selecionar Arquivos
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Album Info Section -->
+            <section class="album-section" id="albumSection" style="display: none;">
+                <div class="glass-card album-card">
+                    <div class="album-header">
+                        <div class="album-cover-container">
+                            <img id="albumCover" src="" alt="Capa do Álbum" class="album-cover">
+                            <button class="edit-cover-btn" onclick="changeCover()">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="album-info">
+                            <input type="text" id="albumName" class="album-name-input" placeholder="Nome do Álbum" onchange="updateAlbumInfo()">
+                            <div class="album-type" id="albumType"></div>
+                            <div class="album-duration" id="albumDuration"></div>
+                            <div class="track-count" id="trackCount"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tracklist -->
+                    <div class="tracklist-section">
+                        <h3>Tracklist</h3>
+                        <div class="tracklist" id="tracklist">
+                            <!-- Tracks will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="album-actions">
+                        <button class="action-btn primary" onclick="exportAlbum()">
+                            <i class="fas fa-download"></i>
+                            Exportar Informações
+                        </button>
+                        <button class="action-btn secondary" onclick="clearAll()">
+                            <i class="fas fa-trash"></i>
+                            Limpar Tudo
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Hidden file input for cover -->
+    <input type="file" id="coverFile" accept="image/*" style="display: none;" onchange="handleCoverChange(event)">
+
+    <script src="script.js"></script>
+</body>
+</html>
