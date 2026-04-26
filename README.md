@@ -3,6 +3,7 @@
 Um projetinho pessoal pra eu organizar minhas músicas, ver a duração e descobrir se é single, EP ou álbum.
 
 Depois de 6 meses eu voltei aqui e atualizei, e pretendo atualizar mais.
+Tambem arrumei aquele bug chato de ter que fazer upload 2 vezes.
 Agora na **V2** tem um tema claro/escuro e mais firulas (porque eu merecia).
 
 ## O que dá pra fazer agora:
@@ -20,7 +21,6 @@ Agora na **V2** tem um tema claro/escuro e mais firulas (porque eu merecia).
 + IndexedDB e localStorage pra guardar as coisas
 
 ## Melhorias futuras
-
 - Player de música integrado
 - Exportar página do álbum em um site HTML, bem bonitinho
 ---
