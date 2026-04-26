@@ -15,13 +15,17 @@
 
     <div class="container">
         <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <i class="fas fa-music"></i>
-                <h1>Spotifer</h1>
-            </div>
-            <p class="subtitle">Seu Estúdio Musical Digital</p>
-        </header>
+<header class="header">
+    <div class="logo">
+        <i class="fas fa-music"></i>
+        <h1>Spotifer</h1>
+    </div>
+    <p class="subtitle">Seu Estúdio Musical Digital</p>
+    <!-- Botão de configurações -->
+    <button class="settings-btn" onclick="openSettings()" title="Configurações">
+        <i class="fas fa-cog"></i>
+    </button>
+</header>
 
         <!-- Main Content -->
         <main class="main-content">
@@ -33,7 +37,7 @@
                         <h3>Arraste suas músicas aqui</h3>
                         <p>ou clique para selecionar arquivos</p>
                         <input type="file" id="musicFiles" multiple accept="audio/*" style="display: none;">
-                        <button class="upload-btn" onclick="document.getElementById('musicFiles').click()">
+                        <button class="upload-btn" id="selectFilesBtn">
                             Selecionar Arquivos
                         </button>
                     </div>
@@ -84,6 +88,50 @@
 
     <!-- Hidden file input for cover -->
     <input type="file" id="coverFile" accept="image/*" style="display: none;" onchange="handleCoverChange(event)">
+
+<!-- Modal de Configurações -->
+<div class="modal-overlay" id="settingsModal" style="display: none;">
+    <div class="modal glass-card">
+        <div class="modal-header">
+            <h2>Configurações</h2>
+            <button class="modal-close" onclick="closeSettings()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h3>Modo de Tema</h3>
+                    <p>Alterna entre claro e escuro</p>
+                </div>
+                <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                    <span class="toggle-text">Modo Escuro</span>
+                </button>
+            </div>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h3>Versão</h3>
+                    <p>v2.0.0</p>
+                </div>
+                <span class="badge">Beta</span>
+            </div>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h3>Desenvolvedor</h3>
+                    <p>Akiradv</p>
+                </div>
+                <a href="https://github.com/akiradv" target="_blank" class="link-btn">
+                    <i class="fas fa-external-link-alt"></i> GitHub
+                </a>
+            </div>
+            <!-- Espaço para futuras configurações (idioma, atalhos etc.) -->
+        </div>
+        <div class="modal-footer">
+            <button class="action-btn secondary" onclick="closeSettings()">Fechar</button>
+        </div>
+    </div>
+</div>
 
     <script src="script.js"></script>
 </body>
